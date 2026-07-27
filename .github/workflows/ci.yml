@@ -21,5 +21,6 @@ jobs:
         run: pytest -q
       - name: Reject local paths and credentials
         run: |
-          ! grep -R -n -E '/home/|/srv/|/extra/|/lv_scratch|BEGIN .*PRIVATE KEY|GITHUB_TOKEN=' \
-            --exclude-dir=.git --exclude=ci.yml .
+          ! git grep -n -E \
+            '/home/|/srv/|/extra/|/lv_scratch|BEGIN .*PRIVATE KEY|GITHUB_TOKEN=' \
+            -- ':!.github/workflows/ci.yml'
