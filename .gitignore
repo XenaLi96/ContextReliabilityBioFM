@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Credentials and local configuration
+.env
+.env.*
+*token*
+*secret*
+*.pem
+*.key
+
+# Biomedical data and generated artifacts
+data/**
+!data/README.md
+outputs/
+results/
+artifacts/
+embeddings/
+checkpoints/
+external/
+slurm_logs/
+logs/
+
+# Large scientific and model files
+*.h5ad
+*.h5
+*.hdf5
+*.loom
+*.zarr
+*.svs
+*.ndpi
+*.mrxs
+*.tif
+*.tiff
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+*.pkl
+*.pickle
+
+# Generated manuscript assets
+figures/
+tables/
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+*~

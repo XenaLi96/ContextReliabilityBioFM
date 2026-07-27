@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the accompanying manuscript."
+title: "Context Is Not a Side Note: A Support-Calibrated Reliability Framework for Biomedical Foundation Models"
+type: software
+version: 0.1.0
+date-released: 2026-07-27
+repository-code: "https://github.com/XenaLi96/ContextReliabilityBioFM"
+authors:
+  - family-names: "Li"
+    given-names: "Xi"
+  - family-names: "Duan"
+    given-names: "Ziheng"
+  - family-names: "Dai"
+    given-names: "Yi"
+  - family-names: "Liu"
+    given-names: "Yang"
+  - family-names: "Zhang"
+    given-names: "Jing"

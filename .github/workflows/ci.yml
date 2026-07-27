@@ -1,0 +1,25 @@
+name: release checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+      - name: Install core dependencies
+        run: pip install -r requirements-core.txt
+      - name: Compile scripts
+        run: python -m compileall -q scripts
+      - name: Run data-free smoke test
+        run: pytest -q
+      - name: Reject local paths and credentials
+        run: |
+          ! grep -R -n -E '/home/|/srv/|/extra/|/lv_scratch|BEGIN .*PRIVATE KEY|GITHUB_TOKEN=' \
+            --exclude-dir=.git --exclude=ci.yml .

@@ -1,0 +1,30 @@
+# Copy this file to configs/paths.local.yaml and edit local paths.
+# The local file is intentionally ignored by git.
+
+cellxgene:
+  h5ad_root: data/raw/cellxgene
+  embedding_root: data/embeddings/cellxgene
+
+tcga:
+  slide_root: data/raw/tcga
+  metadata_root: data/metadata/tcga
+  embedding_root: data/embeddings/tcga
+
+hest:
+  raw_root: data/raw/hest
+  metadata_root: data/metadata/hest
+  embedding_root: data/embeddings/hest
+
+models:
+  geneformer_cache: ~/.cache/huggingface
+  scgpt_source: external/scGPT
+  conch_source: external/CONCH
+  uni_checkpoint: checkpoints/uni/pytorch_model.bin
+  conch_checkpoint: checkpoints/conch/pytorch_model.bin
+  virchow2_checkpoint: checkpoints/virchow2/pytorch_model.bin
+  hoptimus0_checkpoint: checkpoints/hoptimus0/pytorch_model.bin
+
+outputs:
+  root: outputs
+  figures: figures
+  tables: tables
