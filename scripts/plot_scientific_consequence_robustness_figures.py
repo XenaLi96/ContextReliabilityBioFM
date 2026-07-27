@@ -10,6 +10,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
+from matplotlib.patches import Patch
 import numpy as np
 import pandas as pd
 
@@ -317,22 +318,33 @@ def plot_composition(ax: plt.Axes, composition: pd.DataFrame) -> None:
     ax.set_yticks(y)
     ax.set_yticklabels(labels, fontsize=5.0)
     ax.set_xlim(0, 100)
-    ax.set_xlabel("Sampling-corrected composition (%)", fontsize=5.5)
+    ax.set_xlabel(
+        "Sampling-corrected composition (%)",
+        fontsize=5.5,
+        labelpad=4.2,
+    )
     style_quant_axis(ax)
     label_panel(ax, "a", "Reconstruction shifts lineage composition")
     handles = [
-        Line2D([0], [0], color=LINEAGE_COLORS[name], lw=5, label=name)
+        Patch(
+            facecolor=LINEAGE_COLORS[name],
+            edgecolor="none",
+            label=name,
+        )
         for name in ("Acinar", "Ductal", "Other")
     ]
     ax.legend(
         handles=handles,
         loc="lower center",
-        bbox_to_anchor=(0.5, -0.30),
+        bbox_to_anchor=(0.5, -0.38),
         ncol=3,
         fontsize=4.4,
         frameon=False,
-        handlelength=1.0,
-        columnspacing=0.8,
+        handlelength=1.25,
+        handleheight=0.75,
+        handletextpad=0.45,
+        columnspacing=1.25,
+        borderaxespad=0,
     )
 
 
@@ -410,16 +422,16 @@ def make_pancreas_figure() -> None:
         "scgpt_continual/assay",
     )
     marker = pd.read_csv(ROOT / "data/pancreas_marker_sanity/donor_marker_scores.csv")
-    fig = plt.figure(figsize=(3.42, 3.52), facecolor="white")
+    fig = plt.figure(figsize=(3.42, 3.66), facecolor="white")
     grid = fig.add_gridspec(
         2,
         1,
         height_ratios=[1.02, 1.0],
         left=0.22,
         right=0.97,
-        bottom=0.09,
+        bottom=0.08,
         top=0.96,
-        hspace=0.58,
+        hspace=0.72,
     )
     plot_composition(fig.add_subplot(grid[0]), composition)
     plot_marker_donors(fig.add_subplot(grid[1]), marker)
